@@ -1,0 +1,12 @@
+{
+  "name": "CircuS Molecular Descriptors",
+  "description": "Basic CircuS pharmacophore descriptors for molecular analysis",
+  "descriptor": {
+    "type": "circus",
+    "lower": 0,
+    "upper": 3,
+    "on_bond": false,
+    "fmt": "smiles"
+  },
+  "example_usage": "doptools descriptors circus --input molecules.csv --output descriptors.csv --lower 0 --upper 3"
+}

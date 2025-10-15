@@ -1,0 +1,22 @@
+{
+  "name": "Complex Multi-Column Descriptors",
+  "description": "ComplexFragmentor for handling multiple molecular structure columns",
+  "associator": [
+    ["molecules", {
+      "type": "circus", 
+      "lower": 0, 
+      "upper": 2,
+      "fmt": "smiles"
+    }],
+    ["catalysts", {
+      "type": "rdkit",
+      "fp_type": "morgan",
+      "nBits": 512,
+      "radius": 2,
+      "fmt": "smiles"
+    }]
+  ],
+  "structure_columns": ["molecules", "catalysts"],
+  "fmt": "smiles",
+  "example_usage": "doptools descriptors complex --config complex_config.json --input data.csv --output descriptors.csv"
+}

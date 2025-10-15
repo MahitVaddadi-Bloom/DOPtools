@@ -233,7 +233,8 @@ class ChythonCircus(DescriptorCalculator, BaseEstimator, TransformerMixin):
             if isinstance(mol, ReactionContainer):
                 reac = mol
                 mol = reac.compose()
-            table.loc[len(table)] = 0
+            # Add a new row initialized with zeros
+            table.loc[i] = 0
             for length in range(self.lower, self.upper+1):
                 if not self.on_bond:
                     for atom in mol._atoms:
@@ -828,7 +829,7 @@ class ChythonCircusNonhash(BaseEstimator, TransformerMixin):
         for i, mol in enumerate(X):
             if self.fmt == "smiles":
                 mol = smiles(mol)
-            table.loc[len(table)] = 0
+            table.loc[i] = 0
             for sub in self.features:
                 # if CGRs are used, the transformation of the substructure to the CGRcontainer is needed
                 mapping = list(sub.get_mapping(mol))
